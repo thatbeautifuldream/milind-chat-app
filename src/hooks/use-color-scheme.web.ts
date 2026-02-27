@@ -13,6 +13,16 @@ export function useColorScheme() {
 
   const colorScheme = useRNColorScheme();
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (colorScheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  }, [colorScheme]);
+
   if (hasHydrated) {
     return colorScheme;
   }

@@ -5,7 +5,6 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
@@ -15,9 +14,9 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   return (
     <ThemedView>
       <Pressable
-        style={({ pressed }) => [styles.heading, pressed && styles.pressedHeading]}
+        style={styles.trigger}
         onPress={() => setIsOpen((value) => !value)}>
-        <ThemedView type="backgroundElement" style={styles.button}>
+        <ThemedView type="backgroundElement" style={styles.iconContainer}>
           <SymbolView
             name={{ ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' }}
             size={14}
@@ -41,25 +40,22 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
 }
 
 const styles = StyleSheet.create({
-  heading: {
+  trigger: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: Spacing.two,
+    gap: 16,
   },
-  pressedHeading: {
-    opacity: 0.7,
-  },
-  button: {
-    width: Spacing.four,
-    height: Spacing.four,
+  iconContainer: {
+    width: 24,
+    height: 24,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
   content: {
-    marginTop: Spacing.three,
-    borderRadius: Spacing.three,
-    marginLeft: Spacing.four,
-    padding: Spacing.four,
+    marginTop: 16,
+    borderRadius: 12,
+    marginLeft: 24,
+    padding: 16,
   },
 });

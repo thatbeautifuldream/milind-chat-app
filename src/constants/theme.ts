@@ -1,26 +1,49 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
 import '@/global.css';
 
 import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
+    text: '#252525',
     background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    backgroundElement: '#F8F9FA',
+    backgroundSelected: '#EBEBED',
+    textSecondary: '#8E8E93',
+    primary: '#252525',
+    primaryForeground: '#ffffff',
+    secondary: '#F8F9FA',
+    secondaryForeground: '#252525',
+    accent: '#F8F9FA',
+    accentForeground: '#252525',
+    destructive: '#E53935',
+    border: '#EBEBED',
+    input: '#EBEBED',
+    ring: '#8E8E93',
+    card: '#ffffff',
+    cardForeground: '#252525',
+    popover: '#ffffff',
+    popoverForeground: '#252525',
   },
   dark: {
     text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    background: '#252525',
+    backgroundElement: '#3A3A3C',
+    backgroundSelected: '#48484A',
+    textSecondary: '#98989D',
+    primary: '#ffffff',
+    primaryForeground: '#252525',
+    secondary: '#3A3A3C',
+    secondaryForeground: '#ffffff',
+    accent: '#3A3A3C',
+    accentForeground: '#ffffff',
+    destructive: '#FF6B6B',
+    border: '#48484A',
+    input: '#3A3A3C',
+    ring: '#98989D',
+    card: '#252525',
+    cardForeground: '#ffffff',
+    popover: '#252525',
+    popoverForeground: '#ffffff',
   },
 } as const;
 
@@ -28,26 +51,22 @@ export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
+    sans: 'FamiljenGrotesk-Regular',
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
+    mono: 'FiraCode-Regular',
   },
   default: {
-    sans: 'normal',
+    sans: 'FamiljenGrotesk-Regular',
     serif: 'serif',
     rounded: 'normal',
-    mono: 'monospace',
+    mono: 'FiraCode-Regular',
   },
   web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
+    sans: 'FamiljenGrotesk-Regular, Familjen Grotesk, Spline Sans, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    serif: 'Georgia, "Times New Roman", serif',
+    rounded: '"SF Pro Rounded", "Hiragino Maru Gothic ProN", Meiryo, "MS PGothic", sans-serif',
+    mono: 'FiraCode-Regular, Fira Code, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
 });
 
